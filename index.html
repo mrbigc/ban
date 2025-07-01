@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>แฟนของฉัน 💖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://cdn.discordapp.com/attachments/1339098243509911665/1389477189061312653/images_1.jpg?ex=6864c2f9&is=68637179&hm=69314d861365acf2b3e5953dd659ea58a9bc308fc10d5f93aa6415446555194a&');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      color: white;
+      padding: 3rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .glass {
+      backdrop-filter: blur(30px) saturate(200%);
+      -webkit-backdrop-filter: blur(30px) saturate(200%);
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="glass rounded-3xl shadow-xl border-white/20 w-full max-w-xl p-6 text-center">
+    <h2 class="text-3xl font-semibold mb-6">รวมภาพน่ารักๆ ของแฟน 🥰</h2>
+
+    <!-- Container รูปสไลด์ -->
+    <div class="overflow-hidden rounded-2xl border border-white/30 shadow-lg mb-6 max-h-[60vh]">
+      <img id="slideshow" src="" alt="รูปแฟน" class="w-full object-cover transition-all duration-700" />
+    </div>
+
+    <!-- ข้อความ caption -->
+    <p id="caption" class="text-white text-lg font-semibold mb-4"></p>
+
+  </div>
+
+  <script>
+    const slidesConfig = [
+      {
+        image: "https://cdn.discordapp.com/attachments/1339098243509911665/1389479655832031402/Facebook_creation_E6FAD07E-FB35-4F20-945E-E60C1ED5FD7E.jpg?ex=6864c545&is=686373c5&hm=005a9860125d5b0284460a7383d3dd3b64e548483b50c8eefeaa3bc3c3fff5fc&",
+        text: "ยิ้มของเธอคือแสงสว่างของฉัน 💖"
+      },
+      {
+        image: "https://cdn.discordapp.com/attachments/1339098243509911665/1389479662651965551/Facebook_creation_1A6ABFE2-6FEB-4021-90C4-382B5C5B225F.jpg?ex=6864c546&is=686373c6&hm=3bd7b010f950c0c24108269ae675292d21afee7cb268496a0de43d3710128226&",
+        text: "บรรยากาศเย็นๆ กับความรักอุ่นๆ 🌅"
+      },
+      {
+        image: "https://cdn.discordapp.com/attachments/1339098243509911665/1389479670478540861/Facebook_creation_217AC054-351C-422B-A5A4-2D3FDC6B2C5B.jpg?ex=6864c548&is=686373c8&hm=507c977be94a708589ae49cffe941e45a8a74e85e5d9c7fb14a15bec900d1ae4&",
+        text: "เธอคือดอกไม้ในใจฉัน 🌸"
+      },
+      {
+        image: "https://cdn.discordapp.com/attachments/1339098243509911665/1389479677210394624/Facebook_creation_DC386480-AAE2-425D-AF61-69084FA339C7.jpg?ex=6864c54a&is=686373ca&hm=0520e60e3aeeb927ceef1b823e5ac0d0adf28cd02c2af35cdc7f2d3e0c304085&",
+        text: "แค่เห็นเธอ... ใจก็ละลาย 💘"
+      }
+    ];
+
+    let index = 0;
+    const slideshow = document.getElementById('slideshow');
+    const caption = document.getElementById('caption');
+
+    function showSlide(i) {
+      slideshow.src = slidesConfig[i].image;
+      caption.textContent = slidesConfig[i].text;
+    }
+
+    function nextSlide() {
+      index = (index + 1) % slidesConfig.length;
+      showSlide(index);
+    }
+
+    // แสดงภาพแรกตอนโหลดหน้า
+    showSlide(index);
+
+    // สลับภาพทุก 4 วินาที
+    setInterval(nextSlide, 3000);
+  </script>
+
+</body>
+</html>
